@@ -3,9 +3,9 @@
 <h2>Burgers that are not eaten!</h2>
 
 <ul>
-  {{#each burger}}
+  {{#each burgers}}
     {{#unless eaten}}
-      {{> burger/burger-block ate=true}}
+      {{> burgers/burger-block ate=true}}
     {{/unless}}
   {{/each}}
 </ul>
@@ -13,9 +13,9 @@
 <h2>Burger that are eaten!</h2>
 
 <ul>
-  {{#each burger}}
+  {{#each burgers}}
     {{#if eaten}}
-      {{> burger/burger-block ate=false}}
+      {{> burgers/burger-block ate=false}}
     {{/if}}
   {{/each}}
 </ul>

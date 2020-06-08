@@ -1,6 +1,5 @@
 var express = require("express");
-if (process.env.NODE_ENV !== 'production') { require('dotenv').config() }
-
+var env = require("env");
 var PORT = process.env.PORT || 8080;
 
 var app = express();
@@ -30,4 +29,8 @@ app.set('port', ( process.env.PORT || 8080 ))
 app.listen(app.get( 'port' ), function() {
   // Log (server-side) when our server has started
   console.log("Server listening on: http://localhost:" + PORT);
+  server.on('clientError', (err, socket) => {
+    console.error(err);
+    socket.end('HTTP/1.1 400 Bad Request\r\n\r\n');
+  })
 });
